@@ -20,7 +20,7 @@ public class RandomGenerator_Activity22 extends AppCompatActivity {
     private EditText minValue, maxValue, adetValue;
     private LinearLayout progressBarLayout;
     private Button btn_pbUret;
-    int minAralik, maxAralik, adet;//kullanicinin girmiş olduğu değerler
+    int minAralikDeger, maxAralikDeger, adetDeger;//kullanicinin girmiş olduğu değerler
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +38,30 @@ public class RandomGenerator_Activity22 extends AppCompatActivity {
             btn_pbUret.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //buralara girilen degerleri al
-                    minAralik = Integer.parseInt(minValue.getText().toString());
-                    maxAralik = Integer.parseInt(maxValue.getText().toString());
-                    adet = Integer.parseInt(adetValue.getText().toString());
-                    progressBarLayout.removeAllViews();
-                    for (int i = 0; i < adet; i++) {
-                        progressBarOlustur();
+                    //EditText'lara girilen degerleri once string olarak al ve kontrol et
+                    String minAralikText = minValue.getText().toString();
+                    String maxAralikText = maxValue.getText().toString();
+                    String adetText = adetValue.getText().toString();
+
+                    if(minAralikText.isEmpty() || maxAralikText.isEmpty() ||adetText.isEmpty()){
+                        //Eger bu alanlardan herhangi biri bos bile olsa butonu calistirma
+                        Toast.makeText(getApplicationContext(), "Lütfen tüm alanları doldurun.", Toast.LENGTH_LONG).show();
+                    }
+
+                    else{
+                        try {
+                            //daha sonra bunlarla islem yapabilmek icin int'e cevi
+                            minAralikDeger = Integer.parseInt(minAralikText);
+                            maxAralikDeger = Integer.parseInt(maxAralikText);
+                            adetDeger = Integer.parseInt(adetText);
+                            progressBarLayout.removeAllViews();
+                            for (int i = 0; i < adetDeger; i++) {
+                                progressBarOlustur();
+                            }
+                        }
+                        catch (NumberFormatException e){
+                            Toast.makeText(getApplicationContext(), "Geçersiz sayı formatı!", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
             });
@@ -59,8 +76,8 @@ public class RandomGenerator_Activity22 extends AppCompatActivity {
             ProgressBar newProgressBar = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
 
             // Rastgele minimum ve maksimum değerleri üret
-            int minDeger = getRandomValue(minAralik, maxAralik-1);
-            int maxDeger = getRandomValue(minAralik+1, maxAralik);
+            int minDeger = getRandomValue(minAralikDeger, maxAralikDeger-1);
+            int maxDeger = getRandomValue(minAralikDeger+1, maxAralikDeger);
             if(minDeger>maxDeger){
                 int gecici = minDeger;
                 minDeger = maxDeger;
