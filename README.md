@@ -6,7 +6,7 @@
 
 | Activity | Pictures |
 | ------ | ------ |
-| MainActivity | ![MainActivity](app/src/main/res/image/MainActivity.jpg) |
-| ConvertorActivity | ![ConvertorActivity](app/src/main/res/image/ConvertorActivity.jpg) |
-| RandomActivity | ![RandomActivity](app/src/main/res/image/RandomActivity.jpg) |
-| SMSActivity | ![SMSActivity](app/src/main/res/image/SMSActivity.jpg)|
+| MainActivity | <img src="app/src/main/res/image/MainActivity.jpg" width="250" height="350" alt="MainActivity"> |
+| ConvertorActivity | <img src="app/src/main/res/image/ConvertorActivity.jpg" width="250" height="350" alt="ConvertorActivity"> |
+| RandomActivity | <img src="app/src/main/res/image/RandomActivity.jpg" width="250" height="350" alt="ConvertorActivity"> |
+| SMSActivity | <img src="app/src/main/res/image/SMSActivity.jpg" width="250" height="350" alt="SMSActivity"> |
